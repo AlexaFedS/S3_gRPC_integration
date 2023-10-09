@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package grpc_server;
+
+service ServerMethods{
+    rpc GetList(BucketName) returns (stream ListResponse){} // список файлов
+    rpc GetFile(FileName) returns (File){} // ссылка на конкретный файл
+    rpc AddFile(FileRequest) returns (Status){} // загрузить файл
+    rpc EditFile(FileRequest) returns (Status){} // изменить файл ( удалит старый, загрузит новый )
+    rpc DeleteFile(FileName) returns (Status){} // удалит файл
+}
+
+message BucketName{
+    string name = 1;
+}
+
+message FileName{
+    string bucketName = 1;
+    string title = 2;
+}
+
+message FileRequest{
+    string bucketName = 1;
+    string title = 2;
+    string content = 3;
+    string contentType = 4;
+}
+
+message Status{
+    int32 status = 1; //200: OK; 400: ValueError; 500: ServerError
+}
+
+message File{
+    string content = 1;
+}
+
+message ListResponse{
+    string title = 1;
+}
