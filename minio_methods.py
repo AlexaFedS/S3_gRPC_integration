@@ -51,7 +51,7 @@ class MinioClass:
             if(name == 'articles'):
                 file = f'http://127.0.0.1:9000/articles/{title}'
             else:
-                file = f'http://127.0.0.1:9000/authors/{title}'
+                file = f'http://127.0.0.1:9000/permissions/{title}'
             return file
         except S3Error as e:
             print("minio error occurred: ", e)
