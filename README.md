@@ -24,6 +24,7 @@
 python -m grpc_tools.protoc -I ./protos --python_out=. --grpc_python_out=. ./protos/grpc_server.proto
 
 ## Установить:
-pip install grpcio<br/>
-            grpcio-tools<br/>
-            minio
+grpcio<br/>
+grpcio-tools<br/>
+minio<br/>
+config<br/>
